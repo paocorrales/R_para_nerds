@@ -1,0 +1,43 @@
+---
+title: "Manipulando meteoritos"
+author: "Pao"
+date: "October 12, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+#Librerías necesarias
+library(readr)
+library(dplyr)
+```
+
+## La base de datos
+
+La base de datos de impacto de meteoritos es la Meteoritical Society y distribuida por la NASA. Pero además forma parte de una población de bases de datos que crece cada semana con el proyecto [TidyTuesday](https://github.com/rfordatascience/tidytuesday/) para prácticar nuestras habilidades con R. También existe [DatosDeMiércoles](https://github.com/cienciadedatos/datos-de-miercoles), el primo hermano que habla español.
+
+[En esta página](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-11) pueden encontrar los detalles de esta base de datos en particular.
+
+```{r lectura}
+meteoritos <- read_csv("meteoritos.csv")
+```
+
+Ahora hay un nuevo elemento en nuestro environment `meteoritos` que contiene la base de datos que leimos del archivo *meteoritos.csv*.
+
+### Qué información contiene?
+
+El elemento `meteoritos` es un data frame, una especie de tabla, donde cada fila corresponde a una observación (un meteorito encontrado) y cada columna es una variable o característica de esa observación (el nombre del meteorito, en que año se lo encontró, en donde, etc.).
+
+```{r base}
+head(meteoritos, n = 10) #Veamos las primeras filas
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
