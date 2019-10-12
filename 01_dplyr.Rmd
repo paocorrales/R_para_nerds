@@ -32,12 +32,46 @@ El elemento `meteoritos` es un data frame, una especie de tabla, donde cada fila
 head(meteoritos, n = 10) #Veamos las primeras filas
 ```
 
-## Including Plots
+## Un universo de preguntas
 
-You can also embed plots, for example:
+Detrás de un buen análisis de datos siempre hay un montón de preguntas para las cuales se está buscando respuesta. Hay preguntas simples que se pueden responde rápidamente:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+- ¿Cuántos meteoritos tiene la base de datos?
+- ¿Cuántas clases de meteoritos hay?
+
+y otras más complejas que requieren un análisis profundo o que las repensemos en preguntas más simples:
+
+- ¿Cómo es la distribución espacial de los meteoritos?
+- ¿Hay alguna relación entre clase y su masa?
+
+También puede pasar que estos datos en particular no sean suficientes para responder alguna pregunta:
+
+- ¿Caen más meteoritos en verano o en invierno?
+
+### ¿Cuántos fueron encontrados (found) y cuántos vieron caer (fell)?
+
+```{r cuantos}
+meteoritos %>% 
+  filter(fall == "Found") %>% 
+  summarise(n = n())
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### ¿En que año cayeron más meteoritos?
+
+```{r año_mas_interesante}
+meteoritos %>% 
+  group_by(year) %>% 
+  summarise(cantidad = n()) %>% 
+  arrange(cantidad)
+```
+
+### ¿Cómo se llama el meteorito más pesado que vieron caer en 2005 y cuanto pesa?
+
+```{r el_mas_pesado_2005}
+#base de datos %>% 
+#quiero solo los meteoritos del año 2005 %>% 
+#cual será el más pesado? %>% 
+#solo me interesa el nombre y la masa (year y mass) %>% 
+#pero solo quiero el más pesado! %>% 
+```
+
