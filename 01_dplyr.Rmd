@@ -1,7 +1,6 @@
 ---
 title: "Manipulando meteoritos"
 author: "Pao"
-date: "October 12, 2019"
 output: html_document
 ---
 
@@ -68,10 +67,10 @@ meteoritos %>%
 ### ¿Cómo se llama el meteorito más pesado que vieron caer en 2005 y cuanto pesa?
 
 ```{r el_mas_pesado_2005}
-#base de datos %>% 
-#quiero solo los meteoritos del año 2005 %>% 
-#cual será el más pesado? %>% 
-#solo me interesa el nombre y la masa (year y mass) %>% 
-#pero solo quiero el más pesado! %>% 
+# base de datos %>% 
+# quiero solo los meteoritos del año 2005 %>% 
+# cual será el más pesado? %>% 
+# solo me interesa el nombre y la masa (year y mass) %>% 
+# pero solo quiero el más pesado! %>% 
 ```
 
