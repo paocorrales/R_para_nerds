@@ -1,0 +1,44 @@
+---
+title: "Graficando meteoritos"
+author: "Pao"
+date: "October 12, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#Librerías necesarias
+library(readr)
+library(dplyr)
+library(ggplot2)
+```
+
+## Exploración de datos (y meteoritos)
+
+El análisis exploratorio de datos es una manera de "conocer" y extraer información a una base de datos. No hay una única receta para esto, al contrario, es un proceso donde entra en juego la creatividad de cada persona y está guiado por las preguntas que le hacemos a los datos. En general va a ser necesario manipular los datos (algo de lo que estuvimos haciendo con la librería `dplyr`) y generar visualizaciones. De eso vamos a ocuparnos ahora con la librería `ggplot2`.
+
+```{r lectura}
+meteoritos <- read_csv("meteoritos.csv")
+```
+
+### ¿Cuántos... ?
+
+El gráfico de barras nos permite ver la distribución de las observaciones en las distintas categorías. ¿Qué sucede en este caso? ¿Es útil?
+
+```{r cuantos}
+meteoritos %>% 
+  group_by(fall) %>% 
+  summarise(n = n()) %>% 
+  ggplot(aes(fall, n)) +
+  geom_col()
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
