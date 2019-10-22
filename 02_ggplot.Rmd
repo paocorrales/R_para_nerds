@@ -26,9 +26,10 @@ El gráfico de barras nos permite ver la distribución de las observaciones en l
 
 ```{r cuantos}
 meteoritos %>%            # Desde acá manipulamos los datos
-  group_by(fall) %>% 
+  group_by(class) %>% 
   summarise(n = n()) %>% 
-  ggplot(aes(fall, n)) +  # A partir de acá graficamos
+  top_n(20) %>% 
+  ggplot(aes(class, n)) +  # A partir de acá graficamos
   geom_col()
 ```
 
@@ -38,17 +39,17 @@ Si solo necesitamos saber en que año cayeron más meteoritos, podemos mostrar e
 
 ```{r evolucion, echo=FALSE}
 meteoritos %>% 
-  filter(between(year, 0, 2012)) %>% 
+  filter(between(year, 1800, 2012)) %>% 
   group_by(year, fall) %>% 
   summarise(cantidad = n()) %>% 
   ungroup() %>% 
   ggplot(aes(year, cantidad)) +
   geom_line() +
-  scale_x_continuous(name = "Nombre del eje x") +
-  scale_y_log10(name = "Nombre del eje y") +
-  labs(title = "Título",
-       subtitle = "Algún subtitulo") +
-  # facet_wrap(~fall, scales = "free_y", ncol = 1) +
+  scale_x_continuous(name = "Tiempo") +
+  scale_y_log10(name = "Cantidad") +
+  labs(title = "Ahhhhh!!! meteoritos!!",
+       subtitle = "Cada vez caen más!!") +
+  facet_wrap(~fall, scales = "free_y", ncol = 1) +
   theme_minimal() 
 ```
 

@@ -51,7 +51,7 @@ También puede pasar que estos datos en particular no sean suficientes para resp
 
 ```{r cuantos}
 meteoritos %>% 
-  filter(fall == "Found") %>% 
+  filter(fall == "Fell") %>% 
   summarise(n = n())
 ```
 
@@ -61,10 +61,10 @@ meteoritos %>%
 meteoritos %>% 
   group_by(year) %>% 
   summarise(cantidad = n()) %>% 
-  arrange(cantidad)
+  arrange(desc(cantidad))
 ```
 
-### ¿Cómo se llama el meteorito más pesado que vieron caer en 2005 y cuanto pesa?
+### ¿Cómo se llama el meteorito más pesado que encontraron en 2005 y cuanto pesa?
 
 ```{r el_mas_pesado_2005}
 # base de datos %>% 
